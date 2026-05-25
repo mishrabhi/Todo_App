@@ -1,0 +1,222 @@
+{
+  "info": {
+    "_postman_id": "todo-app-collection",
+    "name": "Todo App API",
+    "description": "MERN Todo App API Endpoints Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Todos",
+      "item": [
+        {
+          "name": "Get All Todos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/todos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "todos"]
+            },
+            "description": "Retrieve all todos"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Completed Todos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/todos?filter=completed",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "todos"],
+              "query": [
+                {
+                  "key": "filter",
+                  "value": "completed"
+                }
+              ]
+            },
+            "description": "Retrieve completed todos"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Pending Todos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/todos?filter=pending",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "todos"],
+              "query": [
+                {
+                  "key": "filter",
+                  "value": "pending"
+                }
+              ]
+            },
+            "description": "Retrieve pending todos"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Todo by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/todos/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "todos", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Retrieve a specific todo by ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Todo",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"title\": \"Buy groceries\", \"description\": \"Milk, bread, eggs\", \"dueDate\": \"2024-06-01\"}"
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/todos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "todos"]
+            },
+            "description": "Create a new todo"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Todo",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"title\": \"Buy groceries updated\", \"description\": \"Milk, bread, eggs, butter\", \"completed\": true}"
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/todos/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "todos", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Update an existing todo"
+          },
+          "response": []
+        },
+        {
+          "name": "Mark Todo as Complete",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"completed\": true}"
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/todos/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "todos", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Mark a todo as complete"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Todo",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/todos/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "todos", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Delete a todo"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4000/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["health"]
+        },
+        "description": "Check if server is running"
+      },
+      "response": []
+    }
+  ]
+}
